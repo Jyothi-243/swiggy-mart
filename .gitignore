@@ -1,6 +1,9 @@
 # dependencies
 node_modules/
 
-
 # production build
 dist/
+
+# parcel cache
+.parcel-cache/
+ 
