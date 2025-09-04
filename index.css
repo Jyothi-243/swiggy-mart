@@ -90,7 +90,7 @@
 .restro-menu {
     text-align: center;
     /* background-color: #f5f5f5; */
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .restro-card {
@@ -102,4 +102,17 @@
     margin-top: 20px;
     border-radius: 8px;
     text-align: left;
+}
+
+.about-container {
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.user-info {
+    width: 600px;
+    border: 1px solid black;
+    padding: 12px;
+    margin: 0 auto;
 }
