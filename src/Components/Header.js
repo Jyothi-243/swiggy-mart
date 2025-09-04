@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LOGO_URL } from '../utils/constants';
+import { Link } from 'react-router-dom';
 
+//useState() is used to create the local state variables inside the functional components , 
 const Header = () => {
     const [buttonText, setButtonText] = useState('login');
     return (
@@ -12,9 +14,9 @@ const Header = () => {
             </div>
             <div className="navLinks">
                 <ul className="links">
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us </li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contactpage">Contact Us</Link></li>
                     <li>Cart</li>
                     <button className='login-button' onClick={() => {
                         buttonText === "login" ? setButtonText("logout") : setButtonText("login")

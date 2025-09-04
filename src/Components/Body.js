@@ -21,9 +21,9 @@ export const Body = () => {
         const filterRestro = json?.data?.cards?.slice(3) || []
         setFilterTopRatedRestro(filterRestro);
         setFilterRestro(filterRestro);
-        console.log(filterRestro);
+        // console.log(filterRestro);
     }
-console.log("filterRestrofilterRestro",filterRestro)
+    // console.log("filterRestrofilterRestro", filterRestro)
 
     return filterTopRatedRestro.length === 0 ? <ShimmerUI /> : (
         <div>
@@ -45,8 +45,8 @@ console.log("filterRestrofilterRestro",filterRestro)
             </div>
             <div className="res-container">
                 {
-                    filterRestro?.map((restro, index) => (
-                        <RestroCardContainer key={index} resData={restro?.card?.card?.info} />
+                    filterRestro?.map((restro) => (
+                        <RestroCardContainer key={restro?.card?.card?.info?.id} resData={restro?.card?.card?.info} id ={restro?.card?.card?.info?.id}/>
                     ))
                 }
 
