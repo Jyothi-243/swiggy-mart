@@ -1,7 +1,7 @@
-import RestroCardContainer from "./RestroCardContainer";
-// import { resObj } from "../utils/mockdata.js";
+import RestroCardContainer, {PromotedRestroCard} from "./RestroCardContainer";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
+import useOnlineStatus from "../utils/CustomHooks/useOnlineStatus";
 
 //whenever the state variable updates react triggers a reconcilliation cycle(re-renders the component )
 
@@ -9,6 +9,8 @@ export const Body = () => {
     const [filterTopRatedRestro, setFilterTopRatedRestro] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [filterRestro, setFilterRestro] = useState([]);
+
+    const WrappedRestroCard = PromotedRestroCard(RestroCardContainer);
 
     useEffect(() => {
         fetchData();
@@ -23,30 +25,34 @@ export const Body = () => {
         setFilterRestro(filterRestro);
         // console.log(filterRestro);
     }
-    // console.log("filterRestrofilterRestro", filterRestro)
+
+    const onlineStatus = useOnlineStatus();
+    console.log("online status ", onlineStatus);
+    if (onlineStatus === false) return <h1>You are in offline please check your connection</h1>
+
 
     return filterTopRatedRestro.length === 0 ? <ShimmerUI /> : (
         <div>
             <div className="filter">
-                <input type="text" className="search-container" value={searchText} onChange={(e) => {
+                <input type="text" value={searchText} onChange={(e) => {
                     setSearchText(e.target.value);
                 }} />
-                <button className="search-btn" onClick={() => {
+                <button onClick={() => {
                     //filter the restro by their name and update the UI 
 
                     setFilterRestro(filterTopRatedRestro.filter((restro) => restro?.card?.card?.info?.name.toLowerCase().includes(searchText.toLowerCase())))
                 }}>Search</button>
-                <button className="filtered-btn" onClick={() => {
+                <button onClick={() => {
                     const filteredList = filterTopRatedRestro.filter((res) => res.card.card.info.avgRating >= 4.5);
                     setFilterTopRatedRestro(filteredList);
                 }}>
                     Top-Rated Restro
                 </button>
             </div>
-            <div className="res-container">
+            <div className="res-container" style={{ margin: "0 auto" }}>
                 {
                     filterRestro?.map((restro) => (
-                        <RestroCardContainer key={restro?.card?.card?.info?.id} resData={restro?.card?.card?.info} id ={restro?.card?.card?.info?.id}/>
+                        restro?.card?.card?.info?.promoted ? <WrappedRestroCard key={restro?.card?.card?.info?.id} resData={restro?.card?.card?.info} id={restro?.card?.card?.info?.id} /> : <RestroCardContainer key={restro?.card?.card?.info?.id} resData={restro?.card?.card?.info} id={restro?.card?.card?.info?.id} />
                     ))
                 }
 
