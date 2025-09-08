@@ -3,7 +3,6 @@ import { LOGO_URL } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/CustomHooks/useOnlineStatus';
 
-//useState() is used to create the local state variables inside the functional components , 
 const Header = () => {
     const [buttonText, setButtonText] = useState('login');
 

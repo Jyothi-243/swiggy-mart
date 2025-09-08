@@ -1,4 +1,3 @@
-// import UserFunCom from './UserFunCom';
 import React from 'react';
 import UserClassCom from './UserClassCom';
 
