@@ -82,3 +82,66 @@
     padding: 4px;
     border-radius: 4px;
 }
+
+.restro-menu {
+    text-align: center;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.restro-menu>div {
+    width: 900px;
+    margin: 0 auto;
+    /* display: flex; */
+    /* justify-content: space-between; */
+
+}
+
+.accordian-container {
+    /* background-color: lightgray; */
+    box-shadow: 5px 5px 4px 4px grey;
+    padding: 24px;
+    margin: 4px auto
+}
+
+.accordian-container>div {
+    text-align: left;
+}
+
+.accordian-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 28px;
+
+}
+
+.item-card-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.itemList {
+    display: flex;
+    margin: 20px;
+}
+
+.itemcard-image>img {
+    width: 92px;
+    height: 92px;
+}
+
+.itemcard-image>button {
+    position: absolute;
+    background-color: white;
+    color: green;
+    padding: 6px;
+    margin-left: -72px;
+    border-radius: 8px;
+}
+
+.itemcard-image>button:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
