@@ -7,14 +7,14 @@ const ItemList = ({ itemCards }) => {
             {itemCards.map((item) => {
                 return (
                     <div className="itemList" key={item.card?.info?.id}>
-                        <div>
+                        <div className="item-list-left-container">
                             <div className="item-card-name">
                                 <span >{item.card?.info?.name} - </span>
-                                <span>₹{item.card?.info?.price / 100}</span>
+                                <span>₹{item.card?.info?.price ? item.card?.info?.price / 100 : item.card?.info?.defaultPrice / 100}</span>
                             </div>
 
                             <p>{item.card?.info?.description}</p>
-                            <hr/>
+                            <hr />
 
                         </div>
                         <div className="itemcard-image">

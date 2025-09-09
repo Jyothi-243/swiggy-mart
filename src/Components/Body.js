@@ -1,7 +1,8 @@
-import RestroCardContainer, {PromotedRestroCard} from "./RestroCardContainer";
+import RestroCardContainer, { PromotedRestroCard } from "./RestroCardContainer";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import useOnlineStatus from "../utils/CustomHooks/useOnlineStatus";
+import React from "react";
 
 export const Body = () => {
     const [filterTopRatedRestro, setFilterTopRatedRestro] = useState([]);
@@ -15,7 +16,7 @@ export const Body = () => {
     }, [])
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"); 
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
         const json = await data.json();
         const filterRestro = json?.data?.cards?.slice(3) || []
         setFilterTopRatedRestro(filterRestro);
@@ -47,10 +48,25 @@ export const Body = () => {
             </div>
             <div className="res-container" style={{ margin: "0 auto" }}>
                 {
+                    Array.from({ length: 5 }).map((_, index) => (
+                        <React.Fragment key={index}>
+                            {
+                                filterRestro?.map((restro) => {
+                                    const info = restro?.card?.card?.info;
+                                    const key = info?.id;
+                                    return info?.promoted
+                                        ? <WrappedRestroCard key={`${key}-${index}`} resData={info} id={key} />
+                                        : <RestroCardContainer key={`${key}-${index}`} resData={info} id={key} />;
+                                })
+                            }
+                        </React.Fragment>
+                    ))
+                }
+                {/* {
                     filterRestro?.map((restro) => (
                         restro?.card?.card?.info?.promoted ? <WrappedRestroCard key={restro?.card?.card?.info?.id} resData={restro?.card?.card?.info} id={restro?.card?.card?.info?.id} /> : <RestroCardContainer key={restro?.card?.card?.info?.id} resData={restro?.card?.card?.info} id={restro?.card?.card?.info?.id} />
                     ))
-                }
+                } */}
 
             </div>
         </div>

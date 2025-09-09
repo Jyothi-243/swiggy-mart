@@ -50,6 +50,7 @@
 .res-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 
 }
 
@@ -84,7 +85,7 @@
 }
 
 .restro-menu {
-    text-align: center;
+    text-align: left;
     width: 1000px;
     margin: 0 auto;
 }
@@ -100,7 +101,7 @@
 .accordian-container {
     /* background-color: lightgray; */
     box-shadow: 5px 5px 4px 4px grey;
-    padding: 24px;
+    padding: 24px 24px 4px 24px;
     margin: 4px auto
 }
 
@@ -111,20 +112,21 @@
 .accordian-title {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 20px;
 
 }
 
 .item-card-name {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .itemList {
     display: flex;
     margin: 20px;
+    justify-content: space-between;
 }
 
 .itemcard-image>img {
@@ -144,4 +146,43 @@
 .itemcard-image>button:hover {
     cursor: pointer;
     background-color: lightgreen;
+}
+
+.accordian-title {
+    cursor: pointer;
+}
+
+.item-list-left-container {
+    width: 84%;
+}
+
+.restro-card-data {
+    width: 860px;
+    height: 180px;
+    background-color: rgb(245, 233, 233); 
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    padding-left: 40px;
+    border: 1px solid lightgray;
+
+}
+
+.restro-menu h1 {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.restro-menu h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
 }

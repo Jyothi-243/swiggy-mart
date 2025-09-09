@@ -46,5 +46,8 @@ tooltip question practice ,
 
 But in JavaScript, when you use curly braces {}, the function body requires an explicit return statement. Without it, nothing is returned — and therefore, every iteration is returning undefined, which is falsy, resulting in an empty array [].
 
+# know more about the components and profiler in the react dev tools. 
 
-⬆️ 🔼 🔺 ▲ , ⬇️ 🔽 🔻 ▼ 
+# aggregation means in mongo 
+
+# props drilling(passing the data to its childs even though the data is not needed for the intermediate children) and lifting the state up 

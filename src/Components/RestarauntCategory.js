@@ -1,18 +1,19 @@
 import ItemList from './ItemList';
 
-const RestarauntCategory = (props) => {
-    const { data } = props;
-    console.log("propssss");
+const RestarauntCategory = ({ data, showItems, setShowIndex }) => {
+    //onClick of the div , we have to call the setShowindex() , to set the index.
+
     return (
         <div className="accordian-container">
             {/* header section */}
-            <div className='accordian-title'>
+            <div className='accordian-title' onClick={setShowIndex}>
                 <span>{data.title} ({data.itemCards.length})</span>
-                <span>⬆️</span>
+                {showItems ? <span>⬆️</span> : <span>⬇️</span>}
             </div>
             {/* Accordian body section */}
-            <ItemList itemCards={data.itemCards} />
-        </div>
+            {showItems && <ItemList itemCards={data.itemCards} />}
+
+        </div >
     )
 }
 
