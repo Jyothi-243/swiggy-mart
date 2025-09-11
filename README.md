@@ -51,3 +51,7 @@ But in JavaScript, when you use curly braces {}, the function body requires an e
 # aggregation means in mongo 
 
 # props drilling(passing the data to its childs even though the data is not needed for the intermediate children) and lifting the state up 
+//for the problem of prop drilling , solution is lifting the state up and using useContextApi and Redux store. 
+
+//by fixing the width , we have to give the margin: 0 auto, and some times we have to give the justify-content:space between *** 
+
