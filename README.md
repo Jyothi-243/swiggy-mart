@@ -50,8 +50,19 @@ But in JavaScript, when you use curly braces {}, the function body requires an e
 
 # aggregation means in mongo 
 
-# props drilling(passing the data to its childs even though the data is not needed for the intermediate children) and lifting the state up 
+# props drilling(passing the data to its childs even though the data is not needed for the intermediate children) and lifting the state up (means to pass the state from its parent)
 //for the problem of prop drilling , solution is lifting the state up and using useContextApi and Redux store. 
 
 //by fixing the width , we have to give the margin: 0 auto, and some times we have to give the justify-content:space between *** 
 
+
+# usecontext 
+we can pass the function also in the useContext so that we can modify the state variable name to that value. 
+the context value will be there for the lazy loading components also . 
+--> UseContext.consumer will take the callback function. 
+by using .provider , we can override the value for the useContext values. 
+
+
+Data Management Libraries and state mngmt Libraries : 
+Redux is not from react , 
+Redux thunks , middlewares 

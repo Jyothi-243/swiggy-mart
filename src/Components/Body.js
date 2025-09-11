@@ -1,8 +1,9 @@
 import RestroCardContainer, { PromotedRestroCard } from "./RestroCardContainer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import useOnlineStatus from "../utils/CustomHooks/useOnlineStatus";
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 export const Body = () => {
     const [filterTopRatedRestro, setFilterTopRatedRestro] = useState([]);
@@ -10,6 +11,8 @@ export const Body = () => {
     const [filterRestro, setFilterRestro] = useState([]);
 
     const WrappedRestroCard = PromotedRestroCard(RestroCardContainer);
+
+    const { setUserName } = useContext(UserContext);
 
     useEffect(() => {
         fetchData();
@@ -39,6 +42,9 @@ export const Body = () => {
 
                     setFilterRestro(filterTopRatedRestro.filter((restro) => restro?.card?.card?.info?.name.toLowerCase().includes(searchText.toLowerCase())))
                 }}>Search</button>
+                <label>UserName :
+                    <input onChange={(e) => setUserName(e.target.value)} />
+                </label>
                 <button onClick={() => {
                     const filteredList = filterTopRatedRestro.filter((res) => res.card.card.info.avgRating >= 4.5);
                     setFilterTopRatedRestro(filteredList);
