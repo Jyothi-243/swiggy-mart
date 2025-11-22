@@ -1,15 +1,25 @@
 import { CARD_IMG } from "../utils/constants";
 import { useContext } from "react";
 import userContext from "../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/CartSlice";
+
 
 const ItemList = ({ itemCards }) => {
     const data = useContext(userContext);
 
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        //Dispatch an Action
+        dispatch(addItem(item));
+    }
+
     return (
         <div>
-            {itemCards.map((item) => {
+            {itemCards.map((item, index) => {
                 return (
-                    <div className="itemList" key={item.card?.info?.id}>
+                    <div className="itemList" key={item.card?.info?.id || index}>
                         <div className="item-list-left-container">
                             <div className="item-card-name">
                                 <span >{item.card?.info?.name} - </span>
@@ -23,7 +33,7 @@ const ItemList = ({ itemCards }) => {
                         </div>
                         <div className="itemcard-image">
                             <img src={CARD_IMG + item.card?.info?.imageId} />
-                            <button>ADD +</button>
+                            <button onClick={() => { handleAddItem(item) }}>ADD +</button>
                         </div>
                     </div>
 

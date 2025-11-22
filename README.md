@@ -66,3 +66,24 @@ by using .provider , we can override the value for the useContext values.
 Data Management Libraries and state mngmt Libraries : 
 Redux is not from react , 
 Redux thunks , middlewares 
+
+# Redux is not from redux and , Zustand is also another state management library 
+--> easy to debug , (as redux has chrome extension ) (redux and redux toolkit(updates version, old version is vanilla redux))
+
+
+# Redux Toolkit : 
+-Install @reduxjs/toolkit and react redux 
+-Build our store 
+-Connect our store to our app
+-slice(cart Slice)
+-dispatch Action
+-Selector (selector is a hook inside React)
+
+
+Interview Questions: 
+--> while subscribing to the store make sure to subscribe to the right portion of the store (if not big performance loss, when we get access to whole store when we dont need the other items ,when other items change then whole store will be updated and leads to performance loss.)
+--> for the main app store , we use reducer ,but while creating slice , we use reducers (as we create so many actions in the slices) , app reducer can have multiple small reducers.
+--> when we mutate the state in slices , redux is doing the immutable thing in background(which vanilla redux does) redux uses immer to do this ,
+Immer -- immer is a tiny package that allows you to work with immutable state in a more convenient way. (Redux tool kit uses the Immer Behind the scenes) 
+
+# know about RTK Query (middleware , and thunks now rtk Query )

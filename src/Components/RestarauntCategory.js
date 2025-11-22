@@ -4,9 +4,9 @@ const RestarauntCategory = ({ data, showItems, setShowIndex }) => {
     //onClick of the div , we have to call the setShowindex() , to set the index.
 
     return (
-        <div className="accordian-container" onClick={setShowIndex}>
+        <div className="accordian-container" >
             {/* header section */}
-            <div className='accordian-title'>
+            <div className='accordian-title' onClick={setShowIndex}>
                 <span>{data.title} ({data.itemCards.length})</span>
                 {showItems ? <span>⬆️</span> : <span>⬇️</span>}
             </div>
